@@ -1,0 +1,77 @@
+﻿@model ViewCustomer_BanHangLuuNiem.Models.Cart
+
+@{
+    ViewBag.Title = "ShowToCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowToCart</h2>
+<div class="container single_product_container">
+    <div class="row">
+        <div class="col">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="~/Home/Index">Home</a></li>
+                    <li><a href="">Cart</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    @if (Model != null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    double total = Convert.ToDouble(item.SanPham.GiaBan.Value * item.Quantity);
+                    <tr>
+                        <td>
+                            <img src="~/Content/images/@item.SanPham.HinhAnhChinh" style="width:100px; height:100px" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.SanPham.TenSP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.SanPham.GiaBan)
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("UpdateQuantity", "AddToCart"))
+                            {
+                                <input type="hidden" value="@item.SanPham.MaSP" name="ID_SP" />
+                                <input type="number" value="@item.Quantity" name="quantity" />
+                                <input type="submit" value="Update" class="btn btn-danger" />
+                            }
+                        </td>
+                        <td>
+                            Total: @total
+                        </td>
+                        <td>
+                            <a href="~/AddToCart/RemoveItem/@item.SanPham.MaSP">Remove</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>            
+                <tr>
+                    <td colspan="5" style="text-align:right">Sum Total: @Model.Total()</td>
+                    
+                    <td colspan="5" style="text-align:right"><button class="btn btn-success">CheckOut</button></td>
+                </tr>
+            </tfoot>
+        </table>
+    }
+</div>

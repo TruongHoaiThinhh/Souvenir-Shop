@@ -1,0 +1,123 @@
+﻿@model List<ViewCustomer_BanHangLuuNiem.Models.ItemCart>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title  -->
+    <title>Amado - Furniture Ecommerce Template | Cart</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="~/Content/cart_css/img/core-img/favicon.ico">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="~/Content/cart_css/css/core-style.css">
+    <link rel="stylesheet" href="~/Content/cart_css/style.css">
+
+    <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
+    <script src="~/Content/cart_css/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="~/Content/cart_css/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="~/Content/cart_css/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="~/Content/cart_css/js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="~/Content/cart_css/js/active.js"></script>
+
+</head>
+
+<div class="container single_product_container">
+    <div class="row">
+        <div class="col">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="~/Home/Index">Home</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Cart</a></li>
+                    <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Single Product</a></li>
+                </ul>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <h1>Your sessionId  @ViewBag.yourSessionId</h1>
+                    <div class="col-12 col-lg-8">
+                        <div class="cart-title mt-50">
+                            <h2>Shopping Cart</h2>
+
+                        </div>
+                        <div class="cart-table clearfix">
+                            <table class="table table-responsive" tabindex="1" style="overflow: hidden; outline: none;">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Remove</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="cart_product_img">
+                                                <a href="#"><img src="~/Content/images/@item.SanPham.HinhAnhChinh" style="height:100px; width:90px" alt="Product"></a>
+                                            </td>
+                                            <td class="cart_product_desc">
+                                                <a href="~/Home/Details?MaSP=@item.SanPham.MaSP">@item.SanPham.TenSP</a>
+                                            </td>
+                                            <td class="price">
+                                                <span>$@item.SanPham.GiaBan</span>
+                                            </td>
+                                            <td class="qty">
+                                                <div class="qty-btn d-flex">
+
+                                                    <div class="quantity">
+                                                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="@item.Quantity">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a href="/cart/Remove?MaSP=@item.SanPham.MaSP;quantity=0" class="cart"><i class="fa fa-trash"></i></a>
+
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="cart-summary">
+                            <h5>Cart Total</h5>
+                            <ul class="summary-table">
+                                <li><span>subtotal:</span> <span>$@ViewBag.Total</span></li>
+                                <li><span>delivery:</span> <span>Free</span></li>
+                                <li><span>total:</span> <span>$@ViewBag.Total</span></li>
+                            </ul>
+
+                            <div class="cart-btn mt-100">
+                                <button type="submit" id="checkout" class="btn amado-btn w-100" name="checkout" value=""><a href="~/Cart/checkout?sess"></a>Thanh toán</button>
+                                <button type="submit" id="update" class="btn amado-btn w-100" name="update" value="">Cập nhật</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+

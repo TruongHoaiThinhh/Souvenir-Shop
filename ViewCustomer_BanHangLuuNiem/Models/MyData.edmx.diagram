@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="44867be7ec4347d8b3574aec48f0deaa" Name="Diagram1">
+        <EntityTypeShape EntityType="QuaLuuNiemModel.AccountAdmin" Width="1.5" PointX="7.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuaLuuNiemModel.AccountUser" Width="1.5" PointX="7.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuaLuuNiemModel.ChiTietDonHang" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuaLuuNiemModel.ChiTietSanPham" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuaLuuNiemModel.DanhGia" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuaLuuNiemModel.DanhMuc" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuaLuuNiemModel.DonHang" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuaLuuNiemModel.HinhThucGiaoHang" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuaLuuNiemModel.KhachHang" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuaLuuNiemModel.SanPham" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuaLuuNiemModel.sysdiagram" Width="1.5" PointX="7.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuaLuuNiemModel.TrangThaiDonHang" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <AssociationConnector Association="QuaLuuNiemModel.FK_ChiTietDonHang_DonHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QuaLuuNiemModel.FK_ChiTietDonHang_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QuaLuuNiemModel.FK_ChiTietSanPham_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QuaLuuNiemModel.FK_DanhGia_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QuaLuuNiemModel.FK_SP_MaDM" ManuallyRouted="false" />
+        <AssociationConnector Association="QuaLuuNiemModel.FK_DonHang_HinhThucGiaoHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QuaLuuNiemModel.FK_DonHang_TrangThaiDonHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QuaLuuNiemModel.FK_KhachHang_DonHang" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
